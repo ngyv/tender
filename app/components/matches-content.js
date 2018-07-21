@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import { inject as injectService } from '@ember/service';
 import KeyboardShortcuts from 'ember-keyboard-shortcuts/mixins/component';
 
 export default Component.extend(KeyboardShortcuts, {
@@ -9,6 +10,8 @@ export default Component.extend(KeyboardShortcuts, {
     left: 'pass',
     right: 'like',
   },
+  profileService: injectService('profile'),
+
   actions: {
     refresh() {
       // TODO
