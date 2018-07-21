@@ -1,10 +1,5 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-  keyPress(event) {
-    // left key
-    // right key
-    // up key
-    // down key
-  }
+  classNames: ['tender-match-swipe__profile-container', 'align-self-center'],
 });

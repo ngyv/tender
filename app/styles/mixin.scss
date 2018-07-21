@@ -1,0 +1,25 @@
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin stretch {
+  @include square(100%);
+}
+
+@mixin after-block {
+  position: relative;
+  &::after {
+    @include stretch;
+    position: absolute;
+    content: "";
+  }
+}
+@mixin before-block {
+  position: relative;
+  &::before {
+    @include stretch;
+    position: absolute;
+    content: "";
+  }
+}
