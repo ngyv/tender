@@ -12,6 +12,10 @@ export default Component.extend(KeyboardShortcuts, {
   },
   profileService: injectService('profile'),
 
+  nextProfile() {
+    const currentLogin = this.get('profileService.currentProfile.login');
+    this.get('profileService.ignore').pushObject(currentLogin);
+  },
   actions: {
     refresh() {
       // TODO
@@ -19,11 +23,11 @@ export default Component.extend(KeyboardShortcuts, {
     },
     pass() {
       // TODO
-      alert('pass');
+      this.nextProfile();
     },
     like() {
       // TODO
-      alert('like');
+      this.nextProfile();
     },
     toggleInfo() {
       // TODO
