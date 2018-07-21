@@ -7,6 +7,12 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('recs', function() {
+    this.route('profile');
+  });
+  this.route('likes', function() {
+    this.route('profile', { path: '/:id' });
+  });
 });
 
 export default Router;
