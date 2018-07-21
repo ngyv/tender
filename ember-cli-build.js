@@ -8,6 +8,9 @@ module.exports = function(defaults) {
     'ember-cli-babel': {
       compileModules: true
     },
+    'ember-cli-bootstrap-4': {
+      js: null
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

@@ -1,0 +1,22 @@
+.ember-application { // body
+  @extend .d-flex;
+  @extend .flex-column;
+  margin: 0;
+  min-height: 100vh;
+  height: 100%;
+
+  //TODO: remove
+  background: lightgrey;
+
+  > .ember-view {
+    @extend .d-flex;
+    @extend .flex-column;
+    @extend .flex-grow-1;
+  }
+}
+
+//override bootstrap
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}

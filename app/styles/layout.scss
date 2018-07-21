@@ -1,0 +1,17 @@
+.tender {
+  &-container {
+    flex-grow: 1;
+  }
+  &-navigation {
+    max-width: 400px;
+    flex-grow: 1;
+
+    //TODO: remove
+    background: lightpink;
+  }
+  &-matches {
+
+    //TODO: remove
+    background: lightblue;
+  }
+}
