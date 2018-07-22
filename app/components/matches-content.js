@@ -14,22 +14,22 @@ export default Component.extend(KeyboardShortcuts, {
   keyboardShortcuts: KEYBOARD_SHORTCUTS,
   profileService: injectService('profile'),
 
-  nextProfile() {
-    const currentLogin = this.get('profileService.currentProfile.login');
-    this.get('profileService.ignore').pushObject(currentLogin);
-  },
   actions: {
     refresh() {
       // TODO
       alert('refresh');
     },
     pass() {
-      // TODO
-      this.nextProfile();
+      this.get('profileService').nextProfile();
     },
     like() {
-      // TODO
-      this.nextProfile();
+      const profileService = this.get('profileService');
+      if (!profileService.get('currentProfile')) {
+        alert("Whoops, we're fresh out of profiles!")
+        return;  // TODO: fetch more
+      }
+      profileService.saveProfile();
+      profileService.nextProfile();
     },
     toggleInfo() {
       // TODO
