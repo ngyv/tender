@@ -15,8 +15,24 @@
   }
 }
 
+a {
+  color: black;
+  &:hover,
+  &:active {
+    color: #5e5e5e;
+  }
+}
+
 //override bootstrap
 .row {
   margin-left: 0;
   margin-right: 0;
 }
+
+//variables
+$pink: #ffe5e9;
+$pink-light: #fff6f7;
+$pink-dark: #ffa2b2;
+$pink-gradient: linear-gradient(90deg, rgba(232,75,102,1) 0%, rgba(255,162,178,1) 35%, rgba(255,229,233,1) 100%);
+
+$grey-light: #f9f9f9;

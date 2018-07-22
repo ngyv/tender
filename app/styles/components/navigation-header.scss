@@ -1,0 +1,17 @@
+.tender-navigation-header {
+  background: $pink-gradient;
+
+  &__avatar {
+    @include square(50px);
+    path {
+      fill: #eee;
+    }
+  }
+
+
+  &:hover {
+    path {
+      fill: #fff;
+    }
+  }
+}

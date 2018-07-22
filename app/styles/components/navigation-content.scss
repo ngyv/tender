@@ -1,0 +1,13 @@
+.tender-navigation-content {
+  &__list-item-link {
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+
+    &.active { // bootstrap
+      font-weight: 600;
+      border-bottom: 2px solid $pink-dark;
+    }
+  }
+}

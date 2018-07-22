@@ -1,6 +1,5 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-  tagName: 'nav',
-  classNames: ['tender-navigation', 'col', 'p-0'],
+  classNames: ['tender-navigation-content', 'px-4', 'py-3'],
 });
