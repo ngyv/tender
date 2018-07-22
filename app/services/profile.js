@@ -8,12 +8,6 @@ export default Service.extend({
     return this.get('store').findAll('profile');
   }),
   currentProfile: computed('ignore.length', 'profiles.length', function() {
-    if (this.get('ignore.length') === 0) {
-      return this.get('profiles.firstObject');
-    }
-    return this.get('profiles').find((profile) => {
-      const login = profile.get('login');
-      return !this.get('ignore').includes(login);
-    });
+    return this.get('profiles').find(({ login }) => !this.get('ignore').includes(login));
   }),
 });
