@@ -1,0 +1,18 @@
+.tender-navigation-match-card {
+  width: 100px;
+  height: 130px;
+  border-radius: 5px;
+  overflow: hidden;
+
+  &__login {
+    color: $grey-dark;
+    background-color: $grey-light;
+    font-family: monospace;
+    transition: background-color 0.2s ease-in, font-size 0.2s ease-in;
+  }
+
+  &:hover &__login {
+    font-size: 1.03rem;
+    background-color: #fff;
+  }
+}

@@ -3,3 +3,8 @@
     {{link-to "Matches" "recs" class="tender-navigation-content__list-item-link pb-1"}}
   </li>
 </ul>
+<div class="tender-navigation-content__matches row mt-3">
+  {{#each profileService.saved as |profile|}}
+    {{navigation-match-card match=profile}}
+  {{/each}}
+</div>
