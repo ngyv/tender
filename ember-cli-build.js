@@ -10,6 +10,15 @@ module.exports = function(defaults) {
     },
     'ember-cli-bootstrap-4': {
       js: null
+    },
+    octicons: {
+      icons: null // use svgJar
+    },
+    svgJar: {
+      sourceDirs: [
+        'public', // default SVGJar lookup directory
+        'node_modules/octicons/build/svg'
+      ]
     }
   });
 
