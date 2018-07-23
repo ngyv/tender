@@ -1,0 +1,7 @@
+.tender-match-instructions {
+  color: $grey-medium;
+
+  &__icon + &__icon {
+    margin-left: 30px;
+  }
+}
