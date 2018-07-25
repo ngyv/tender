@@ -17,14 +17,16 @@ export default Component.extend(KeyboardShortcuts, {
   keyboardShortcuts: KEYBOARD_SHORTCUTS,
   profileService: injectService('profile'),
   swiped: null,
+  pauseSwipe: false,
 
   swipe(direction, callback) {
     if (!POSSIBLE_DIRECTIONS.includes(direction)) { return; }
     this.set('swiped', `swiped-${direction}`);
-    later(this, function() {
+    this.set('pauseSwipe', later(this, function() {
       this.set('swiped', null);
       callback.call(this);
-    }, 500); // same as animation duration
+      this.set('pauseSwipe', false);
+    }, 500)); // same as animation duration
   },
   likeProfile() {
     const profileService = this.get('profileService');
@@ -42,9 +44,11 @@ export default Component.extend(KeyboardShortcuts, {
       alert('refresh');
     },
     pass() {
+      if (this.get('pauseSwipe')) { return; }
       this.swipe('left', () => this.get('profileService').nextProfile());
     },
     like() {
+      if (this.get('pauseSwipe')) { return; }
       this.swipe('right', this.likeProfile);
     },
     toggleInfo() {
