@@ -60,6 +60,18 @@
       background-image: linear-gradient(0, rgba(0, 0, 0, 0.5), transparent 60%);
     }
   }
+  &__icon {
+    &-pass,
+    &-like {
+      width: 100%;
+    }
+    &-pass {
+      color: red;
+    }
+    &-like {
+      color: yellow;
+    }
+  }
   &__info {
     z-index: 1;
   }

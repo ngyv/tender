@@ -2,7 +2,13 @@
   alt="Avatar for {{profile.name}}"
   style="background-image: url('{{profile.avatarUrl}}');">
   {{!-- To push info below --}}
-  <div class="mb-auto"></div>
+  <div class="d-flex flex-grow-1 w-100">
+    {{#if (eq swiped "left")}}
+      {{svg-icon type="x" class="tender-match-swipe__icon-pass" size=100 xAlign='start' yAlign='start'}}
+    {{else if (eq swiped "right")}}
+      {{svg-icon type="zap" class="tender-match-swipe__icon-like" size=100 xAlign='start' yAlign='end'}}
+    {{/if}}
+  </div>
   {{!-- P.S. This doesn't render on html :D --}}
   <div class="tender-match-swipe__info p-3">
     <div class="tender-match-swipe__info-name">{{profile.name}}</div>
