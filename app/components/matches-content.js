@@ -21,7 +21,7 @@ export default Component.extend(KeyboardShortcuts, {
 
   swipe(direction, callback) {
     if (!POSSIBLE_DIRECTIONS.includes(direction)) { return; }
-    this.set('swiped', `swiped-${direction}`);
+    this.set('swiped', direction);
     this.set('pauseSwipe', later(this, function() {
       this.set('swiped', null);
       callback.call(this);
