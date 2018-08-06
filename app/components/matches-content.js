@@ -35,7 +35,6 @@ export default Component.extend(KeyboardShortcuts, {
       return;  // TODO: fetch more
     }
     profileService.saveProfile();
-    profileService.nextProfile();
   },
 
   actions: {
