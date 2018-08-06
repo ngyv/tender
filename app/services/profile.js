@@ -6,7 +6,9 @@ export default Service.extend({
   store: injectService(),
   ignore: [], // TODO: persist this
   unsaved: filterBy('profiles', 'isSaved', false),
-  saved: filterBy('profiles', 'isSaved', true),
+  saved: computed('profiles.@each.savedAt', function() {
+    return this.get('profiles').filterBy('isSaved', true).sortBy('savedAt');
+  }),
   profiles: computed(function() {
     return this.get('store').findAll('profile');
   }),
@@ -19,6 +21,9 @@ export default Service.extend({
   },
   saveProfile(profile) {
     let toSave = profile || this.get('currentProfile');
-    toSave.set('isSaved', true);
+    toSave.setProperties({
+      isSaved: true,
+      savedAt: new Date(),
+    });
   },
 });

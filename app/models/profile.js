@@ -10,4 +10,5 @@ export default Model.extend({
   bio: attr('string'),
   avatarUrl: attr('string'),
   isSaved: attr('boolean', { defaultValue: false }),
+  savedAt: attr('date'),
 });
