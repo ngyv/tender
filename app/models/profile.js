@@ -9,6 +9,5 @@ export default Model.extend({
   isHireable: attr('boolean'),
   bio: attr('string'),
   avatarUrl: attr('string'),
-  isSaved: attr('boolean', { defaultValue: false }),
   savedAt: attr('date'),
 });
