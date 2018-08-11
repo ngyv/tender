@@ -3,11 +3,7 @@ import attr from 'ember-data/attr';
 
 export default Model.extend({
   login: attr('string'),
-  name: attr('string'),
-  email: attr('string'),
-  company: attr('string'),
-  isHireable: attr('boolean'),
-  bio: attr('string'),
+  htmlUrl: attr('string'), // unused for now
   avatarUrl: attr('string'),
-  savedAt: attr('date'),
+  savedAt: attr('date'), // fake variable
 });
