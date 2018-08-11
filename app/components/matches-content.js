@@ -1,23 +1,34 @@
 import Component from '@ember/component';
 import { inject as injectService } from '@ember/service';
 import { later } from '@ember/runloop';
-import KeyboardShortcuts from 'ember-keyboard-shortcuts/mixins/component';
-
-const KEYBOARD_SHORTCUTS = Object.freeze({
-  up: 'toggleInfo',
-  down: 'toggleInfo',
-  left: 'pass',
-  right: 'like',
-});
+import $ from 'jquery';
 
 const POSSIBLE_DIRECTIONS = Object.freeze(['left', 'right']);
 
-export default Component.extend(KeyboardShortcuts, {
+export default Component.extend({
   classNames: ['tender-matches', 'col', 'p-3', 'd-flex', 'flex-column'],
-  keyboardShortcuts: KEYBOARD_SHORTCUTS,
   profileService: injectService('profile'),
   swiped: null,
   pauseSwipe: false,
+
+  didInsertElement() {
+    this._super(...arguments);
+    this.keydownHandler = ({ key }) => {
+      if (key === 'ArrowUp' || key === 'ArrowDown') {
+        this.send('toggleInfo');
+      } else if (key === 'ArrowLeft') {
+        this.send('pass');
+      } else if (key === 'ArrowRight') {
+        this.send('like');
+      }
+    };
+    $(window).on('keydown', this.keydownHandler);
+  },
+
+  willDestroyElement() {
+    this._super(...arguments);
+    $(window).off('keydown', this.keydownHandler);
+  },
 
   swipe(direction, callback) {
     if (!POSSIBLE_DIRECTIONS.includes(direction)) { return; }
