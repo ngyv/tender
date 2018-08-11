@@ -30,6 +30,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.GIT_CLIENT = 'now pay em';
+    ENV.GIT_SECRET = 'shhh...secret';
   }
 
   if (environment === 'test') {
@@ -45,6 +47,8 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.rootURL = '/tender';
+    ENV.GIT_CLIENT = process.env.GITHUB_CLIENT;
+    ENV.GIT_SECRET = process.env.GITHUB_CLIENT;
   }
 
   return ENV;
