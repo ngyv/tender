@@ -14,9 +14,9 @@ install:
 script:
 - npm test
 deploy:
-  provider: pages
+  provider: script
   skip_cleanup: true
-  keep-history: true
+  script: node_modules/.bin/ember deploy production --activate --verbose
   github-token: "$GITHUB_TOKEN"
   on:
     branch: master
