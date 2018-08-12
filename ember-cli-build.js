@@ -6,7 +6,8 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     'ember-cli-babel': {
-      compileModules: true
+      compileModules: true,
+      includePolyfill: true
     },
     'ember-cli-bootstrap-4': {
       js: null

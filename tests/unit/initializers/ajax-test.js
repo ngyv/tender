@@ -4,6 +4,7 @@ import { initialize } from 'tender/initializers/ajax';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import destroyApp from '../../helpers/destroy-app';
+import { run } from '@ember/runloop';
 
 module('Unit | Initializer | ajax', function(hooks) {
   setupTest(hooks);
@@ -23,9 +24,10 @@ module('Unit | Initializer | ajax', function(hooks) {
   });
 
   // Replace this with your real tests.
-  test('it works', async function(assert) {
-    await this.application.boot();
-
+  test('it works', function(assert) {
+    run(() => {
+      this.application.boot();
+    });
     assert.ok(true);
   });
 });
