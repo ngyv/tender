@@ -50,6 +50,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.rootURL = '/tender';
+    ENV.locationType = 'hash';
     ENV.GIT_CLIENT = process.env.GITHUB_CLIENT;
     ENV.GIT_SECRET = process.env.GITHUB_CLIENT;
   }

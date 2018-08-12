@@ -13,12 +13,11 @@ install:
 - npm install
 script:
 - npm test
-- npm run build -- -prod
 deploy:
   provider: pages
-  skip-cleanup: true
-  github-token: "$GITHUB_TOKEN"
+  skip_cleanup: true
   keep-history: true
+  github-token: "$GITHUB_TOKEN"
   on:
     branch: master
 env:
