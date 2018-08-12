@@ -3,6 +3,7 @@ import { computed } from '@ember/object';
 import { filterBy } from '@ember/object/computed';
 
 export default Service.extend({
+  ajax: injectService(),
   store: injectService(),
   ignore: [], // TODO: persist this
   showUser: null,
@@ -18,8 +19,22 @@ export default Service.extend({
     if (showUser) {
       return showUser;
     }
-    return this.get('unsaved').find(({ login }) => !this.get('ignore').includes(login));
+    const currentUser = this.get('unsaved').find(({ login }) => !this.get('ignore').includes(login));
+    if (currentUser) {
+      this.getCurrentUserProfile(currentUser);
+    }
+    return currentUser;
   }),
+
+  getCurrentUserProfile(currentUser) {
+    // manual ajax and push to store
+    return this.get('ajax').request(`https://api.github.com/users/${currentUser.login}`)
+      .then((response) => {
+        const profile = this.get('store').normalize('profile', response);
+        this.get('store').push(profile);
+        return profile;
+      });
+  },
 
   clearShowUser() {
     this.set('showUser', null);
