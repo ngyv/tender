@@ -13,13 +13,3 @@ install:
 - npm install
 script:
 - npm test
-deploy:
-  provider: script
-  skip_cleanup: true
-  script: node_modules/.bin/ember deploy production --activate --verbose
-  github-token: "$GITHUB_TOKEN"
-  on:
-    branch: master
-env:
-  matrix:
-    secure: Ol1c2nkLjdNvkGho7Wu8zNuhXWegO3JxIIIv2NTmR3vA9qUd2gJrpqQXh0EkAdtan64l+/Jtt8zVCmR5uyeVWISSgPuyOpNllJ9LlmB6XQTbFGrA3pY/gvjniH2gQFr/gta/jUv3+TlnGKkTBZAd9R5JMSHippp6bjqsIR9XM0N2IlqT5aeK7RrwGShvxSw58LJLn6fh/lMXf/szgTsjnrK5g7jGzfCANKiyYANsPxA5TascFDVAEjd6IzF+aT6VlJwfAKRlX2UzeMtcPhwHp5X064aVA9w/ynGKLNIm/v5fDqvargkrwIf8y/zr+NWq/pOprgDgSsUw7YAuQOUzZFN4pkHLrgeQMtAZc6w7pQtCTda0SI/jlD+7qR6bLF9CZqQuo0GfzVTAOpRmxYmKDesmPAr8TTcHol5c8FPa5L+8WJbkobfjWb97NblZIisF2UGhRTu7G9T6zFwmq+NYZjFy9ahWSXlXZJ8YYE+dyYvKVa8BzEYpQ8qPKfPmFdmX0m8/R5XBDH/J6D3Oo2WWBhTA3GzBCkBoYm8btzCWPTSt+2AsmSjnkJQ4xW8oxMvhA14SW04xal80EpxHea4uBVk3u6tjqKqk+ANmaVuT3wpOUe8Aia7O52K80PGKMdJwuyYadW9dFLtOzCZMAdg/EuNjaKFhIwK40kpt9oqk9mo=
