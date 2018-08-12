@@ -7,7 +7,7 @@ const POSSIBLE_DIRECTIONS = Object.freeze(['left', 'right']);
 
 export default Component.extend({
   classNames: ['tender-matches', 'col', 'p-3', 'd-flex', 'flex-column'],
-  profileService: injectService('profile'),
+  userService: injectService('user'),
   swiped: null,
   pauseSwipe: false,
 
@@ -39,13 +39,13 @@ export default Component.extend({
       this.set('pauseSwipe', false);
     }, 500)); // same as animation duration
   },
-  likeProfile() {
-    const profileService = this.get('profileService');
-    if (!profileService.get('currentProfile')) {
-      alert("Whoops, we're fresh out of profiles!")
+  likeUser() {
+    const userService = this.get('userService');
+    if (!userService.get('currentUser')) {
+      alert("Whoops, we're fresh out of users!")
       return;  // TODO: fetch more
     }
-    profileService.saveProfile();
+    userService.saveUser();
   },
 
   actions: {
@@ -55,11 +55,11 @@ export default Component.extend({
     },
     pass() {
       if (this.get('pauseSwipe')) { return; }
-      this.swipe('left', () => this.get('profileService').nextProfile());
+      this.swipe('left', () => this.get('userService').nextUser());
     },
     like() {
       if (this.get('pauseSwipe')) { return; }
-      this.swipe('right', this.likeProfile);
+      this.swipe('right', this.likeUser);
     },
     toggleInfo() {
       // TODO

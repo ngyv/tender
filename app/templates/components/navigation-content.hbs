@@ -4,7 +4,7 @@
   </li>
 </ul>
 <div class="tender-navigation-content__matches row mt-3">
-  {{#each profileService.saved as |profile|}}
-    {{navigation-match-card match=profile}}
+  {{#each userService.saved as |user|}}
+    {{navigation-match-card match=user}}
   {{/each}}
 </div>
