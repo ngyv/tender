@@ -12,15 +12,6 @@ module('Integration | Component | navigation-header', function(hooks) {
 
     await render(hbs`{{navigation-header}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#navigation-header}}
-        template block text
-      {{/navigation-header}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.textContent.trim(), 'My User');
   });
 });

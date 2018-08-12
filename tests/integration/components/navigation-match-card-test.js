@@ -13,14 +13,5 @@ module('Integration | Component | navigation-match-card', function(hooks) {
     await render(hbs`{{navigation-match-card}}`);
 
     assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#navigation-match-card}}
-        template block text
-      {{/navigation-match-card}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });
