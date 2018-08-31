@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { inject as injectService } from '@ember/service';
-import { later } from '@ember/runloop';
+import { later, cancel } from '@ember/runloop';
 import $ from 'jquery';
 
 const POSSIBLE_DIRECTIONS = Object.freeze(['left', 'right']);
@@ -28,12 +28,18 @@ export default Component.extend({
   willDestroyElement() {
     this._super(...arguments);
     $(window).off('keydown', this.keydownHandler);
+    if (this.get('_swipeLater')) {
+      cancel(this.get('_swipeLater'));
+    }
   },
 
   swipe(direction, callback) {
     if (!POSSIBLE_DIRECTIONS.includes(direction)) { return; }
-    this.set('swiped', direction);
-    this.set('pauseSwipe', later(this, function() {
+    this.setProperties({
+      swiped: direction,
+      pauseSwipe: true,
+    });
+    this.set('_swipeLater', later(this, function() {
       this.set('swiped', null);
       callback.call(this);
       this.set('pauseSwipe', false);
